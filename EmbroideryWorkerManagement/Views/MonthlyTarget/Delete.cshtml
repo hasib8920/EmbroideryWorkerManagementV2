@@ -1,0 +1,25 @@
+﻿@model EmbroideryWorkerManagement.ViewModels.MonthlyTargetViewModel
+@{
+    ViewData["Title"] = "Delete Monthly Target";
+}
+
+<h2 class="mb-4 text-danger">Are you sure you want to delete this?</h2>
+
+<div class="card p-4">
+    <dl class="row">
+        <dt class="col-sm-4">Worker</dt>
+        @* <dd class="col-sm-8">@Model.WorkerName</dd> *@
+
+        <dt class="col-sm-4">Month</dt>
+        <dd class="col-sm-8">@Model.Month</dd>
+
+        <dt class="col-sm-4">Year</dt>
+        <dd class="col-sm-8">@Model.Year</dd>
+    </dl>
+</div>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger mt-3">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary mt-3 ms-2">Cancel</a>
+</form>

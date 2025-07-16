@@ -1,0 +1,43 @@
+﻿@model EmbroideryWorkerManagement.Models.MonthlyPayment
+
+@{
+    ViewData["Title"] = "Payment Details";
+}
+
+<h2>Monthly Payment Details</h2>
+
+<div class="card p-4 bg-light">
+    <dl class="row">
+        <dt class="col-sm-3">Worker</dt>
+        <dd class="col-sm-9">@Model.Worker.Name</dd>
+
+        <dt class="col-sm-3">Month</dt>
+        <dd class="col-sm-9">@Model.Month/@Model.Year</dd>
+
+        <dt class="col-sm-3">Base Salary</dt>
+        <dd class="col-sm-9">@Model.BaseSalary.ToString("N2")</dd>
+
+        <dt class="col-sm-3">Attendance Bonus</dt>
+        <dd class="col-sm-9">@Model.AttendanceBonus.ToString("N2")</dd>
+
+        <dt class="col-sm-3">Extra Production Bonus</dt>
+        <dd class="col-sm-9">@Model.ExtraProductionBonus.ToString("N2")</dd>
+
+        <dt class="col-sm-3">Advance Deduction</dt>
+        <dd class="col-sm-9">@Model.AdvanceDeduction.ToString("N2")</dd>
+
+        <dt class="col-sm-3">Total Salary</dt>
+        <dd class="col-sm-9">@Model.TotalSalary.ToString("N2")</dd>
+
+        <dt class="col-sm-3">Paid Amount</dt>
+        <dd class="col-sm-9">@Model.PaidAmount.ToString("N2")</dd>
+
+        <dt class="col-sm-3">Due Amount</dt>
+        <dd class="col-sm-9">@Model.DueAmount.ToString("N2")</dd>
+
+        <dt class="col-sm-3">Payment Date</dt>
+        <dd class="col-sm-9">@Model.PaymentDate.ToShortDateString()</dd>
+    </dl>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary mt-3">Back to List</a>

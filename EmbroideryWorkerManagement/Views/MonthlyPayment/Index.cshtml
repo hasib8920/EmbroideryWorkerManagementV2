@@ -1,0 +1,46 @@
+﻿@model IEnumerable<EmbroideryWorkerManagement.Models.MonthlyPayment>
+@{
+    ViewData["Title"] = "Monthly Payments";
+}
+
+<h2 class="mb-4">Monthly Payments</h2>
+
+<a asp-action="Generate" class="btn btn-success mb-3">Generate New Payment</a>
+
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Worker</th>
+            <th>Month</th>
+            <th>Base Salary</th>
+            <th>Attendance Bonus</th>
+            <th>Extra Production Bonus</th>
+            <th>Advance Deduction</th>
+            <th>Total Salary</th>
+            <th>Paid</th>
+            <th>Due</th>
+            <th>Payment Date</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Worker.Name</td>
+                <td>@item.Month/@item.Year</td>
+                <td>@item.BaseSalary.ToString("N2")</td>
+                <td>@item.AttendanceBonus.ToString("N2")</td>
+                <td>@item.ExtraProductionBonus.ToString("N2")</td>
+                <td>@item.AdvanceDeduction.ToString("N2")</td>
+                <td>@item.TotalSalary.ToString("N2")</td>
+                <td>@item.PaidAmount.ToString("N2")</td>
+                <td>@item.DueAmount.ToString("N2")</td>
+                <td>@item.PaymentDate.ToShortDateString()</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

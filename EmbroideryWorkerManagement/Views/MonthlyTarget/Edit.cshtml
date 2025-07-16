@@ -1,0 +1,69 @@
+﻿@model EmbroideryWorkerManagement.ViewModels.MonthlyTargetViewModel
+@{
+    ViewData["Title"] = "Edit Monthly Target";
+}
+
+<h2 class="mb-4">Edit Monthly Target</h2>
+
+<form asp-action="Edit" method="post" class="row g-3">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="col-md-6">
+        <label asp-for="WorkerId" class="form-label"></label>
+        <select asp-for="WorkerId" asp-items="ViewBag.Workers" class="form-select"></select>
+        <span asp-validation-for="WorkerId" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="Month" class="form-label"></label>
+        <input asp-for="Month" class="form-control" />
+        <span asp-validation-for="Month" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="Year" class="form-label"></label>
+        <input asp-for="Year" class="form-control" />
+        <span asp-validation-for="Year" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-4">
+        <label asp-for="DailyTargetUnits" class="form-label"></label>
+        <input asp-for="DailyTargetUnits" class="form-control" />
+        <span asp-validation-for="DailyTargetUnits" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-4">
+        <label asp-for="TargetUnits" class="form-label"></label>
+        <input asp-for="TargetUnits" class="form-control" />
+        <span asp-validation-for="TargetUnits" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-4">
+        <label asp-for="BonusPerExtraUnit" class="form-label"></label>
+        <input asp-for="BonusPerExtraUnit" class="form-control" />
+        <span asp-validation-for="BonusPerExtraUnit" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="DailyTargetBonusAmount" class="form-label"></label>
+        <input asp-for="DailyTargetBonusAmount" class="form-control" />
+        <span asp-validation-for="DailyTargetBonusAmount" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="FullAttendanceBonus" class="form-label"></label>
+        <input asp-for="FullAttendanceBonus" class="form-control" />
+        <span asp-validation-for="FullAttendanceBonus" class="text-danger"></span>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a asp-action="Index" class="btn btn-secondary ms-2">Back</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

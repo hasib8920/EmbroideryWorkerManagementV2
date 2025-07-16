@@ -1,0 +1,18 @@
+@model EmbroideryWorkerManagement.Models.Holiday
+
+@{
+    ViewData["Title"] = "Holiday Details";
+}
+
+<h2 class="mb-4">Holiday Details</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Worker: @Model.Worker.Name</h5>
+        <p class="card-text"><strong>Date:</strong> @Model.Date.ToString("yyyy-MM-dd")</p>
+        <p class="card-text"><strong>Reason:</strong> @Model.Reason</p>
+    </div>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning mt-3">Edit</a>
+<a asp-action="Index" class="btn btn-secondary mt-3">Back to List</a>

@@ -1,0 +1,102 @@
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}
+@model EmbroideryWorkerManagement.Models.Worker
+
+@{
+    ViewData["Title"] = "Add New Worker";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Add New Worker</h2>
+
+    <form asp-action="Create" method="post" class="row g-3">
+        <div class="col-md-6">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="PhoneNumber" class="form-label"></label>
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="JoinDate" class="form-label"></label>
+            <input asp-for="JoinDate" class="form-control" type="date" />
+            <span asp-validation-for="JoinDate" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="BaseSalary" class="form-label"></label>
+            <input asp-for="BaseSalary" class="form-control" />
+            <span asp-validation-for="BaseSalary" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="OvertimeRate" class="form-label"></label>
+            <input asp-for="OvertimeRate" class="form-control" />
+            <span asp-validation-for="OvertimeRate" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="NationalIdNumber" class="form-label"></label>
+            <input asp-for="NationalIdNumber" class="form-control" />
+            <span asp-validation-for="NationalIdNumber" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Address" class="form-label"></label>
+            <input asp-for="Address" class="form-control" />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+
+        <!-- Optional Extra Fields -->
+        <div class="col-md-4">
+            <label asp-for="DailyTargetUnit" class="form-label"></label>
+            <input asp-for="DailyTargetUnit" class="form-control" />
+            <span asp-validation-for="DailyTargetUnit" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4">
+            <label asp-for="DailyTargetBonusAmount" class="form-label"></label>
+            <input asp-for="DailyTargetBonusAmount" class="form-control" />
+            <span asp-validation-for="DailyTargetBonusAmount" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4">
+            <label asp-for="BonusPerExtraUnit" class="form-label"></label>
+            <input asp-for="BonusPerExtraUnit" class="form-control" />
+            <span asp-validation-for="BonusPerExtraUnit" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4">
+            <label asp-for="MealAllowancePerDay" class="form-label"></label>
+            <input asp-for="MealAllowancePerDay" class="form-control" />
+            <span asp-validation-for="MealAllowancePerDay" class="text-danger"></span>
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-success">Save</button>
+            <a asp-action="Index" class="btn btn-secondary">Back</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+}

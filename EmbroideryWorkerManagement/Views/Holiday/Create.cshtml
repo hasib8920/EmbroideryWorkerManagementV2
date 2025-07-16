@@ -1,0 +1,32 @@
+@model EmbroideryWorkerManagement.Models.Holiday
+
+@{
+    ViewData["Title"] = "Create Holiday";
+}
+
+<h2 class="mb-4">Create Holiday</h2>
+
+<form asp-action="Create" class="row g-3">
+    <div class="col-md-6">
+        <label asp-for="WorkerId" class="form-label">Worker</label>
+        <select asp-for="WorkerId" asp-items="ViewBag.WorkerId" class="form-select"></select>
+        <span asp-validation-for="WorkerId" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Date" class="form-label">Date</label>
+        <input asp-for="Date" class="form-control" type="date" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-12">
+        <label asp-for="Reason" class="form-label">Reason</label>
+        <input asp-for="Reason" class="form-control" />
+        <span asp-validation-for="Reason" class="text-danger"></span>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-success">Save</button>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</form>

@@ -1,0 +1,25 @@
+﻿@model EmbroideryWorkerManagement.Models.Attendance
+
+@{
+    ViewData["Title"] = "Attendance Details";
+}
+
+<div class="container mt-4">
+    <h2>@ViewData["Title"]</h2>
+
+    <dl class="row">
+        <dt class="col-sm-3">Worker</dt>
+        <dd class="col-sm-9">@Model.Worker.Name</dd>
+
+        <dt class="col-sm-3">Date</dt>
+        <dd class="col-sm-9">@Model.Date.ToString("yyyy-MM-dd")</dd>
+
+        <dt class="col-sm-3">Present</dt>
+        <dd class="col-sm-9">@(Model.IsPresent ? "Present" : "Absent")</dd>
+
+        <dt class="col-sm-3">Meal Allowance</dt>
+        <dd class="col-sm-9">@Model.MealAllowance</dd>
+    </dl>
+
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</div>

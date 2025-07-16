@@ -1,0 +1,22 @@
+﻿@model EmbroideryWorkerManagement.ViewModels.MachineWorkViewModel
+
+@{
+    ViewData["Title"] = "Machine Work Details";
+}
+
+<h2>Machine Work Details</h2>
+
+<div class="card p-4 shadow-sm bg-light">
+    <dl class="row">
+        <dt class="col-sm-3">Worker</dt>
+        <dd class="col-sm-9">@Model.WorkerName</dd>
+
+        <dt class="col-sm-3">Date</dt>
+        <dd class="col-sm-9">@Model.Date.ToString("yyyy-MM-dd")</dd>
+
+        <dt class="col-sm-3">Units Produced</dt>
+        <dd class="col-sm-9">@Model.UnitsProduced</dd>
+    </dl>
+
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</div>

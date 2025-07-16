@@ -1,0 +1,19 @@
+﻿@model IEnumerable<EmbroideryWorkerManagement.Models.AdvanceSalary>
+
+<table class="table table-sm table-bordered mt-2">
+    <thead class="table-dark">
+        <tr>
+            <th>Date</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Date.ToShortDateString()</td>
+                <td>@item.Amount.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>

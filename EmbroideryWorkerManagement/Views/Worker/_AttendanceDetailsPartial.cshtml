@@ -1,0 +1,19 @@
+﻿@model IEnumerable<EmbroideryWorkerManagement.Models.Attendance>
+
+<table class="table table-sm table-bordered mt-2">
+    <thead class="table-dark">
+        <tr>
+            <th>Date</th>
+            <th>Is HoliDay</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Date.ToShortDateString()</td>
+                <td>@(item.IsHoliday ? "Yes" : "No")</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,54 @@
+﻿@model EmbroideryWorkerManagement.Models.MonthlyPayment
+
+@{
+    ViewData["Title"] = "Payment Slip";
+}
+
+<div class="container border p-4" style="max-width: 700px;">
+    <h2 class="text-center mb-4">Payment Slip</h2>
+
+    <div class="mb-3">
+        <strong>Worker Name:</strong> @Model.Worker.Name <br />
+        <strong>Month:</strong> @Model.Month/@Model.Year <br />
+        <strong>Payment Date:</strong> @Model.PaymentDate.ToShortDateString()
+    </div>
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Base Salary</th>
+                <td>@Model.BaseSalary.ToString("N2")</td>
+            </tr>
+            <tr>
+                <th>Attendance Bonus</th>
+                <td>@Model.AttendanceBonus.ToString("N2")</td>
+            </tr>
+            <tr>
+                <th>Extra Production Bonus</th>
+                <td>@Model.ExtraProductionBonus.ToString("N2")</td>
+            </tr>
+            <tr>
+                <th>Advance Deduction</th>
+                <td>-@Model.AdvanceDeduction.ToString("N2")</td>
+            </tr>
+            <tr>
+                <th>Total Salary</th>
+                <td>@Model.TotalSalary.ToString("N2")</td>
+            </tr>
+            <tr>
+                <th>Paid Amount</th>
+                <td>@Model.PaidAmount.ToString("N2")</td>
+            </tr>
+            <tr>
+                <th>Due Amount</th>
+                <td>@Model.DueAmount.ToString("N2")</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="text-center">
+        <button class="btn btn-secondary" onclick="window.print()">Print Slip</button>
+    </div>
+    <a class="btn btn-danger" asp-action="DownloadPdf" asp-route-id="@Model.Id">Download PDF</a>
+
+</div>

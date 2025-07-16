@@ -1,0 +1,36 @@
+﻿@model EmbroideryWorkerManagement.ViewModels.MonthlyTargetViewModel
+@{
+    ViewData["Title"] = "Monthly Target Details";
+}
+
+<h2 class="mb-4">Monthly Target Details</h2>
+
+<div class="card p-4">
+    <dl class="row">
+        <dt class="col-sm-4">Worker</dt>
+        @* <dd class="col-sm-8">@Model.WorkerName</dd> *@
+
+        <dt class="col-sm-4">Month</dt>
+        <dd class="col-sm-8">@Model.Month</dd>
+
+        <dt class="col-sm-4">Year</dt>
+        <dd class="col-sm-8">@Model.Year</dd>
+
+        <dt class="col-sm-4">Daily Target Units</dt>
+        <dd class="col-sm-8">@Model.DailyTargetUnits</dd>
+
+        <dt class="col-sm-4">Total Target Units</dt>
+        <dd class="col-sm-8">@Model.TargetUnits</dd>
+
+        <dt class="col-sm-4">Bonus per Extra Unit</dt>
+        <dd class="col-sm-8">@Model.BonusPerExtraUnit</dd>
+
+        <dt class="col-sm-4">Daily Target Bonus Amount</dt>
+        <dd class="col-sm-8">@Model.DailyTargetBonusAmount</dd>
+
+        <dt class="col-sm-4">Full Attendance Bonus</dt>
+        <dd class="col-sm-8">@Model.FullAttendanceBonus</dd>
+    </dl>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary mt-3">Back to List</a>

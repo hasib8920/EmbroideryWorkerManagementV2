@@ -1,0 +1,39 @@
+@model IEnumerable<EmbroideryWorkerManagement.Models.Attendance>
+
+@{
+    ViewData["Title"] = "Attendance List";
+}
+
+<div class="container mt-4">
+    <h2>Attendance List</h2>
+
+    <a asp-action="Create" class="btn btn-primary mb-3">Add New Attendance</a>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Worker Name</th>
+                <th>Date</th>
+                <th>Present</th>
+                <th>Meal Allowance</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Worker.Name</td>
+                    <td>@item.Date.ToShortDateString()</td>
+                    <td>@(item.IsPresent ? "Present" : "Absent")</td>
+                    <td>@item.MealAllowance.ToString("N2")</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

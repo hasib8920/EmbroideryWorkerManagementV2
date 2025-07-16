@@ -1,0 +1,32 @@
+﻿@model EmbroideryWorkerManagement.Models.Worker
+@{
+    ViewData["Title"] = "Worker Payment History";
+}
+
+<h2 class="mb-4">Payment History for @Model.Name</h2>
+
+<table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Month</th>
+            <th>Year</th>
+            <th>Total Salary</th>
+            <th>Paid</th>
+            <th>Due</th>
+            <th>Payment Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.MonthlyPayments)
+        {
+            <tr>
+                <td>@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(item.Month)</td>
+                <td>@item.Year</td>
+                <td>@item.TotalSalary.ToString("N2")</td>
+                <td>@item.PaidAmount.ToString("N2")</td>
+                <td>@item.DueAmount.ToString("N2")</td>
+                <td>@item.PaymentDate.ToString("dd MMM yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h2 class="mb-4">Dashboard Overview</h2>
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="card text-bg-primary mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Total Workers</h5>
+                <h3>@ViewBag.TotalWorkers</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-bg-success mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Total Payments</h5>
+                <h3>@ViewBag.TotalPayments.ToString("N2") ৳</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-bg-warning mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Advance Salary</h5>
+                <h3>@ViewBag.TotalAdvance.ToString("N2") ৳</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-bg-danger mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Due Amount</h5>
+                <h3>@ViewBag.TotalDue.ToString("N2") ৳</h3>
+            </div>
+        </div>
+    </div>
+</div>

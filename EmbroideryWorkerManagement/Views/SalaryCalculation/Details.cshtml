@@ -1,0 +1,26 @@
+﻿@model EmbroideryWorkerManagement.Models.MonthlyPayment
+
+@{
+    ViewData["Title"] = "Salary Details";
+}
+
+<h2>Salary Details</h2>
+
+<div class="p-4 border rounded">
+
+    <h4>Worker: @Model.Worker.Name</h4>
+    <p><b>Month:</b> @Model.Month / @Model.Year</p>
+
+    <table class="table table-bordered">
+        <tr><th>Base Salary</th><td>@Model.BaseSalary.ToString("N2")</td></tr>
+        <tr><th>Attendance Bonus</th><td>@Model.AttendanceBonus.ToString("N2")</td></tr>
+        <tr><th>Extra Production Bonus</th><td>@Model.ExtraProductionBonus.ToString("N2")</td></tr>
+        <tr><th>Advance Deduction</th><td>@Model.AdvanceDeduction.ToString("N2")</td></tr>
+        <tr><th>Total Salary</th><td>@Model.TotalSalary.ToString("N2")</td></tr>
+        <tr><th>Paid Amount</th><td>@Model.PaidAmount.ToString("N2")</td></tr>
+        <tr><th>Due Amount</th><td>@Model.DueAmount.ToString("N2")</td></tr>
+        <tr><th>Payment Date</th><td>@Model.PaymentDate.ToShortDateString()</td></tr>
+    </table>
+
+    <a asp-action="Calculate" class="btn btn-secondary">Back</a>
+</div>

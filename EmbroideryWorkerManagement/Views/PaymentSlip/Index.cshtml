@@ -1,0 +1,35 @@
+﻿@model IEnumerable<EmbroideryWorkerManagement.Models.MonthlyPayment>
+
+@{
+    ViewData["Title"] = "Payment Slip Generator";
+}
+
+<h2>Payment Slips</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Worker</th>
+            <th>Month</th>
+            <th>Total Salary</th>
+            <th>Paid</th>
+            <th>Due</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Worker.Name</td>
+                <td>@p.Month/@p.Year</td>
+                <td>@p.TotalSalary.ToString("N2")</td>
+                <td>@p.PaidAmount.ToString("N2")</td>
+                <td>@p.DueAmount.ToString("N2")</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" asp-action="GenerateSlip" asp-route-id="@p.Id">Generate Slip</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,56 @@
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}
+@model EmbroideryWorkerManagement.ViewModels.AdvanceSalaryViewModel
+
+@{
+    ViewData["Title"] = "Add Advance Salary";
+}
+
+<div class="container mt-4">
+    <h2>Add Advance Salary</h2>
+
+    <form asp-action="Create" method="post" class="p-4 bg-light rounded shadow-sm">
+
+        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+        <div class="mb-3">
+            <label asp-for="WorkerId" class="form-label"></label>
+            <select asp-for="WorkerId" class="form-select"
+                    asp-items="@(new SelectList(ViewBag.Workers, "Id", "Name", Model.WorkerId))">
+                <option value="">-- Select Worker --</option>
+            </select>
+            <span asp-validation-for="WorkerId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Date" class="form-label"></label>
+            <input asp-for="Date" class="form-control" type="date" />
+            <span asp-validation-for="Date" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Amount" class="form-label"></label>
+            <input asp-for="Amount" class="form-control" type="number" step="0.01" />
+            <span asp-validation-for="Amount" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-success">Save</button>
+        <a asp-action="Index" class="btn btn-secondary">Back</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

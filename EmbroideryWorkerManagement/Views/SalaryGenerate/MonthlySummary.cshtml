@@ -1,0 +1,37 @@
+﻿@model List<EmbroideryWorkerManagement.Models.MonthlyPayment>
+
+@{
+    ViewData["Title"] = "Monthly Salary Summary";
+}
+
+<h2>Salary Summary - @ViewBag.Month/@ViewBag.Year</h2>
+
+<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Worker</th>
+            <th>Base Salary</th>
+            <th>Attendance Bonus</th>
+            <th>Extra Production Bonus</th>
+            <th>Advance Deduction</th>
+            <th>Total Salary</th>
+            <th>Paid</th>
+            <th>Due</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var payment in Model)
+        {
+            <tr>
+                <td>@payment.Worker.Name</td>
+                <td>@payment.BaseSalary</td>
+                <td>@payment.AttendanceBonus</td>
+                <td>@payment.ExtraProductionBonus</td>
+                <td>@payment.AdvanceDeduction</td>
+                <td>@payment.TotalSalary</td>
+                <td>@payment.PaidAmount</td>
+                <td>@payment.DueAmount</td>
+            </tr>
+        }
+    </tbody>
+</table>

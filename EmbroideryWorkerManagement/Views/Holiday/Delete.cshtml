@@ -1,0 +1,21 @@
+@model EmbroideryWorkerManagement.Models.Holiday
+
+@{
+    ViewData["Title"] = "Delete Holiday";
+}
+
+<h2 class="mb-4 text-danger">Are you sure to delete?</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Worker: @Model.Worker.Name</h5>
+        <p class="card-text"><strong>Date:</strong> @Model.Date.ToString("yyyy-MM-dd")</p>
+        <p class="card-text"><strong>Reason:</strong> @Model.Reason</p>
+    </div>
+</div>
+
+<form asp-action="DeleteConfirmed" class="mt-3">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

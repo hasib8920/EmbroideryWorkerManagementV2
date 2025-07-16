@@ -1,0 +1,47 @@
+@model EmbroideryWorkerManagement.Models.Worker
+
+@{
+    ViewData["Title"] = "Worker Details";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Worker Details</h2>
+
+    <dl class="row">
+        <dt class="col-sm-3">Name</dt>
+        <dd class="col-sm-9">@Model.Name</dd>
+
+        <dt class="col-sm-3">Phone</dt>
+        <dd class="col-sm-9">@Model.PhoneNumber</dd>
+
+        <dt class="col-sm-3">Join Date</dt>
+        <dd class="col-sm-9">@Model.JoinDate.ToString("yyyy-MM-dd")</dd>
+
+        <dt class="col-sm-3">Base Salary</dt>
+        <dd class="col-sm-9">@Model.BaseSalary.ToString("N2")</dd>
+
+        <dt class="col-sm-3">Overtime Rate</dt>
+        <dd class="col-sm-9">@Model.OvertimeRate.ToString("N2")</dd>
+
+        <dt class="col-sm-3">Address</dt>
+        <dd class="col-sm-9">@Model.Address</dd>
+
+        <dt class="col-sm-3">National ID</dt>
+        <dd class="col-sm-9">@Model.NationalIdNumber</dd>
+
+        <dt class="col-sm-3">Daily Target</dt>
+        <dd class="col-sm-9">@Model.DailyTargetUnit</dd>
+
+        <dt class="col-sm-3">Daily Target Bonus</dt>
+        <dd class="col-sm-9">@Model.DailyTargetBonusAmount</dd>
+
+        <dt class="col-sm-3">Bonus Per Extra Unit</dt>
+        <dd class="col-sm-9">@Model.BonusPerExtraUnit</dd>
+
+        <dt class="col-sm-3">Meal Allowance/Day</dt>
+        <dd class="col-sm-9">@Model.MealAllowancePerDay</dd>
+    </dl>
+
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</div>

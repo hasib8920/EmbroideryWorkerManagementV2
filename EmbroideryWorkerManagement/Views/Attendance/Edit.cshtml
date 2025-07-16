@@ -1,0 +1,58 @@
+@model EmbroideryWorkerManagement.ViewModels.AttendanceCreateEditViewModel
+
+@{
+    ViewData["Title"] = "Edit Attendance";
+}
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}
+
+<div class="container mt-4">
+    <h2>Edit Attendance</h2>
+
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label asp-for="WorkerId" class="form-label"></label>
+            <select asp-for="WorkerId" asp-items="ViewBag.WorkerId" class="form-select" disabled></select>
+            <input type="hidden" asp-for="WorkerId" /> <!-- WorkerId preserve -->
+            <span asp-validation-for="WorkerId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Date" class="form-label"></label>
+            <input asp-for="Date" class="form-control" type="date" value="@Model.Date.ToString("yyyy-MM-dd")" />
+            <span asp-validation-for="Date" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 form-check">
+            <input asp-for="IsPresent" class="form-check-input" />
+            <label asp-for="IsPresent" class="form-check-label"></label>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="MealAllowance" class="form-label"></label>
+            <input asp-for="MealAllowance" class="form-control" />
+            <span asp-validation-for="MealAllowance" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a asp-action="Index" class="btn btn-secondary">Back</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Generate Salary";
+}
+
+<h2>Generate Monthly Salary</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<form asp-action="Generate" method="post">
+    <div class="form-group">
+        <label>Year</label>
+        <input type="number" name="year" class="form-control" value="@DateTime.Now.Year" required />
+    </div>
+
+    <div class="form-group">
+        <label>Month</label>
+        <select name="month" class="form-control" required>
+            @for (int i = 1; i <= 12; i++)
+            {
+                bool isSelected = i == DateTime.Now.Month;
+                <option value="@i" selected="@(isSelected ? "selected" : null)">
+                    @System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i)
+                </option>
+            }
+
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Generate Salary</button>
+</form>

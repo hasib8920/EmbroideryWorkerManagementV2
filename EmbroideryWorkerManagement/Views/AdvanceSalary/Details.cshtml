@@ -1,0 +1,27 @@
+@model EmbroideryWorkerManagement.Models.AdvanceSalary
+
+@{
+    ViewData["Title"] = "Advance Salary Details";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between mb-3">
+        <h2>Advance Salary Details</h2>
+        <a asp-action="Index" class="btn btn-secondary">Back</a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">Worker Name</dt>
+                <dd class="col-sm-9">@Model.Worker?.Name</dd>
+
+                <dt class="col-sm-3">Date</dt>
+                <dd class="col-sm-9">@Model.Date.ToString("yyyy-MM-dd")</dd>
+
+                <dt class="col-sm-3">Amount</dt>
+                <dd class="col-sm-9">@Model.Amount.ToString("N2")</dd>
+            </dl>
+        </div>
+    </div>
+</div>

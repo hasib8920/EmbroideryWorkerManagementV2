@@ -1,0 +1,30 @@
+@model EmbroideryWorkerManagement.ViewModels.MachineWorkViewModel
+
+@{
+    ViewData["Title"] = "Delete Machine Work";
+}
+
+<h2>Confirm Delete</h2>
+
+<div class="alert alert-danger">
+    Are you sure you want to delete this machine work entry?
+</div>
+
+<div class="card p-4 shadow-sm bg-light mb-3">
+    <dl class="row">
+        <dt class="col-sm-3">Worker</dt>
+        <dd class="col-sm-9">@Model.WorkerName</dd>
+
+        <dt class="col-sm-3">Date</dt>
+        <dd class="col-sm-9">@Model.Date.ToString("yyyy-MM-dd")</dd>
+
+        <dt class="col-sm-3">Units Produced</dt>
+        <dd class="col-sm-9">@Model.UnitsProduced</dd>
+    </dl>
+</div>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

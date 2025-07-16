@@ -1,0 +1,45 @@
+﻿@model EmbroideryWorkerManagement.ViewModels.ReportFilterViewModel
+
+<form method="get" asp-action="Index" class="mb-4 row gx-3 gy-2 align-items-center">
+    <div class="col-sm-3">
+        <label class="form-label">Month</label>
+        <select class="form-select" name="Month">
+            <option value="">-- Select Month --</option>
+            @for (int i = 1; i <= 12; i++)
+            {
+                var selected = (i == Model.Month) ? "selected" : "";
+                <option value="@i" selected="@selected">
+                    @System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i)
+                </option>
+            }
+        </select>
+    </div>
+
+    <div class="col-sm-3">
+        <label class="form-label">Year</label>
+        <select class="form-select" name="Year">
+            <option value="">-- Select Year --</option>
+            @for (int year = DateTime.Now.Year - 5; year <= DateTime.Now.Year + 1; year++)
+            {
+                var selected = (year == Model.Year) ? "selected" : "";
+                <option value="@year" selected="@selected">@year</option>
+            }
+        </select>
+    </div>
+
+    <div class="col-sm-3">
+        <label class="form-label">Worker</label>
+        <select class="form-select" name="WorkerId">
+            <option value="">-- Select Worker --</option>
+            @foreach (var worker in Model.Workers)
+            {
+                var selected = (worker.Id == Model.WorkerId) ? "selected" : "";
+                <option value="@worker.Id" selected="@selected">@worker.Name</option>
+            }
+        </select>
+    </div>
+
+    <div class="col-sm-3 d-flex align-items-end">
+        <button type="submit" class="btn btn-primary w-100">Filter</button>
+    </div>
+</form>
